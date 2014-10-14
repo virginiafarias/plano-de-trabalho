@@ -1,17 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>bcq</groupId>
-  <artifactId>plano-trabalho</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>bcq</groupId>
+	<artifactId>plano-trabalho</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 
 	<repositories>
 		<repository>
 			<id>npi-mvn-repo</id>
 			<url>http://npi-ufc-qxd.github.io/npi-mvn-repo/</url>
 		</repository>
-	</repositories> 
-	
+	</repositories>
+
 	<properties>
 		<!-- Generic properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,11 +37,30 @@
 		<!-- Web dependencies -->
 		<bootstrap.version>3.1.1</bootstrap.version>
 		<jquery.version>2.1.0</jquery.version>
-		<jquery-ui.version>1.10.3</jquery-ui.version>	
-	</properties> 
-	
+		<jquery-ui.version>1.10.3</jquery-ui.version>
+	</properties>
+
 	<dependencies>
-		
+		<!-- Java EE / Java SE dependencies -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>3.0-alpha-1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${javax.inject.version}</version>
+		</dependency>
+
 		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -67,7 +87,7 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<!-- SPRING SECURITY-->
+		<!-- SPRING SECURITY -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -123,7 +143,7 @@
 			<artifactId>jquery-ui</artifactId>
 			<version>${jquery-ui.version}</version>
 		</dependency>
-	
+
 		<!-- NPI -->
 		<dependency>
 			<groupId>br.ufc.quixada.npi</groupId>
@@ -134,8 +154,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>BCQ</finalName>
-
+		<finalName>plano-trabalho</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -147,5 +166,5 @@
 			</plugin>
 		</plugins>
 	</build>
-  
+
 </project>

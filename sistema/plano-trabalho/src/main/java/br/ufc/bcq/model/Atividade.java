@@ -28,6 +28,9 @@ public class Atividade {
 	@OneToMany(mappedBy = "atividade")
 	private List<Documento> documentos;
 
+	@ManyToMany
+	private List<Label> labels;
+	
 	private String descricao;
 	private Date inicio;
 	private Date termino;
