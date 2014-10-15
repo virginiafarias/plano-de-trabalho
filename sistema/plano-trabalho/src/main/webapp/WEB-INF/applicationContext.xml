@@ -28,5 +28,6 @@
 	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true" />
 
 	<context:component-scan base-package="br.ufc.bcq.controller" />
-	<context:component-scan base-package="br.ufc.bcq.model" />
+	<context:component-scan base-package="br.ufc.bcq.service.impl" />
+	<context:component-scan base-package="br.ufc.bcq.repositorio.impl" />
 </beans>

@@ -1,23 +1,30 @@
 package br.ufc.bcq.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
+import org.codehaus.jackson.annotate.JsonManagedReference;
+
 @Entity
-public class Usuario {
+public class Usuario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
 	@ManyToMany
-	@JoinColumn(name = "atividade_id")
+	@JsonManagedReference
 	private List<Atividade> atividades;
 	
 	private String siape;
@@ -60,5 +67,10 @@ public class Usuario {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", siape=" + siape + ", nome=" + nome
+				+ ", senha=" + senha + ", email=" + email + "]";
 	}	
 }

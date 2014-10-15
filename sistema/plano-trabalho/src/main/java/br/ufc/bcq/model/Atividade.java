@@ -1,5 +1,6 @@
 package br.ufc.bcq.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,17 +13,25 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 import br.ufc.bcq.model.enumerator.Periodicidade;
 import br.ufc.bcq.model.enumerator.Status;
 
 @Entity
-public class Atividade {
+public class Atividade implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@ManyToMany(mappedBy = "atividades")
+	@JsonBackReference
 	private List<Usuario> usuarios;
 
 	@OneToMany(mappedBy = "atividade")
@@ -42,7 +51,8 @@ public class Atividade {
 	
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	private int dia;
+	
+	private Integer dia;
 
 	public Long getId() {
 		return id;
@@ -98,10 +108,10 @@ public class Atividade {
 	public void setPeriodicidade(Periodicidade periodicidade) {
 		this.periodicidade = periodicidade;
 	}
-	public int getDia() {
+	public Integer getDia() {
 		return dia;
 	}
-	public void setDia(int dia) {
+	public void setDia(Integer dia) {
 		this.dia = dia;
 	}
 	
@@ -110,6 +120,19 @@ public class Atividade {
 	}
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+	public List<Label> getLabels() {
+		return labels;
+	}
+	public void setLabels(List<Label> labels) {
+		this.labels = labels;
+	}
+	@Override
+	public String toString() {
+		return "Atividade [id=" + id + ", descricao=" + descricao + ", inicio="
+				+ inicio + ", termino=" + termino + ", observacoes="
+				+ observacoes + ", codigo=" + codigo + ", periodicidade="
+				+ periodicidade + ", status=" + status + ", dia=" + dia + "]";
 	}
 	
 	

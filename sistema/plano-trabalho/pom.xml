@@ -143,12 +143,17 @@
 			<artifactId>jquery-ui</artifactId>
 			<version>${jquery-ui.version}</version>
 		</dependency>
-
-		<!-- NPI -->
+		
 		<dependency>
-			<groupId>br.ufc.quixada.npi</groupId>
-			<artifactId>npi-core-api</artifactId>
-			<version>0.0.6</version>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-lgpl</artifactId>
+			<version>1.9.13</version>
 		</dependency>
 
 	</dependencies>

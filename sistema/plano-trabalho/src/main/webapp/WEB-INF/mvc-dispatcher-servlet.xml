@@ -14,12 +14,14 @@
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
-			<value>/WEB-INF/spa/</value>
+			<value>/WEB-INF/view/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
 		</property>
 	</bean>
+	
+	
 
 	<mvc:resources mapping="/webjars/**" location="/webjars/" />
 
