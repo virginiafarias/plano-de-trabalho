@@ -17,4 +17,5 @@
 <script src="<c:url value="/webjars/bootstrap/3.1.1/js/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/js/bootstrap-select.min.js" />"></script>
 <script src="<c:url value="/resources/js/jquery.bootgrid.min.js" />"></script>
+<script src="<c:url value="/resources/js/moment-with-locales.js" />"></script>
 <script src="<c:url value="/resources/js/spa.js" />"></script>

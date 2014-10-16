@@ -15,6 +15,8 @@
 <body>
 	<jsp:include page="../fragmentos/css.jsp" />
 	<div class="container">
+		<input id="current-periodicidade" type="hidden"/>
+		<input id="current-data" type="hidden"/>
 		<div>
 			<select id="periodicidade" name="periodicidade" class="selectpicker">
 				<option value="dia">DIA</option>
@@ -24,6 +26,21 @@
 		</div>
 		<div class="form" align="center">
 			<h1>Minhas Atividades</h1>
+		</div>
+		<div id="periodo-dia" class="periodo">
+			<span id="before" class="glyphicon glyphicon-chevron-left"></span>
+				<label id="periodo-dia"></label>
+			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
+		</div>
+		<div id="periodo-semana"  class="periodo" style="display: none;">
+			<span id="before" class="glyphicon glyphicon-chevron-left"></span>
+				<label id="periodo-semana"></label>
+			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
+		</div>
+		<div id="periodo-mes"  class="periodo" style="display: none;">
+			<span id="before" class="glyphicon glyphicon-chevron-left"></span>
+				<label id="periodo-mes"></label>
+			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
 		</div>
 		<table id="atividades">
 			<thead>

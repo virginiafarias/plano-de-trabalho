@@ -8,6 +8,6 @@ import br.ufc.bcq.model.Usuario;
 
 public interface AtividadeRepositorio extends GenericRepositorio<Atividade> {
 	
-	List<Atividade> getAtividadesByDiaAndUsuario(Date data, Usuario usuario);
+	List<Atividade> getAtividadesByDiaAndUsuario(Date inicio, Date termino, Usuario usuario);
 
 }

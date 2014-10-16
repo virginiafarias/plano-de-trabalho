@@ -7,12 +7,6 @@ import br.ufc.bcq.model.Atividade;
 
 public interface AtividadeService {
 	
-	List<Atividade> getAllAtividades();
-	
-	List<Atividade> getAtividadesDiarias(Date data);
-	
-	List<Atividade> getAtividadesSemanais(Date data);
-	
-	List<Atividade> getAtividadesMensais(Date data);
+	List<Atividade> getAtividadesByDiaAndUsuario(Date inicio, Date termino);
 
 }

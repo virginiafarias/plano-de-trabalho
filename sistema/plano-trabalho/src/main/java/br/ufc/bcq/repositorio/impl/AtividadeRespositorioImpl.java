@@ -16,11 +16,12 @@ import br.ufc.bcq.repositorio.AtividadeRepositorio;
 public class AtividadeRespositorioImpl extends GenericRepositorioImpl<Atividade> implements AtividadeRepositorio {
 
 	@Override
-	public List<Atividade> getAtividadesByDiaAndUsuario(Date data,
-			Usuario usuario) {
+	public List<Atividade> getAtividadesByDiaAndUsuario(Date inicio, Date termino, Usuario usuario) {
 		Map<String, Object> namedParams = new HashMap<String, Object>();
 		namedParams.put("usuario", usuario.getId());
-		return find(QueryType.JPQL, "select distinct a from Atividade a join a.usuarios u where u.id = :usuario", namedParams);
+		namedParams.put("inicio", inicio);
+		namedParams.put("termino", termino);
+		return find(QueryType.JPQL, "select distinct a from Atividade a join a.usuarios u where u.id = :usuario and a.inicio >= :inicio and a.termino <= :termino", namedParams);
 	}
 
 }
