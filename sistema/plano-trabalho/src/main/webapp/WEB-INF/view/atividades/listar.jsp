@@ -15,6 +15,8 @@
 <body>
 	<jsp:include page="../fragmentos/css.jsp" />
 	<div class="container">
+		<input id="current-periodicidade" type="hidden"/>
+		<input id="current-data" type="hidden"/>
 		<div>
 			<select id="periodicidade" name="periodicidade" class="selectpicker">
 				<option value="dia">DIA</option>
@@ -25,13 +27,28 @@
 		<div class="form" align="center">
 			<h1>Minhas Atividades</h1>
 		</div>
+		<div id="periodo-dia" class="periodo">
+			<span id="before" class="glyphicon glyphicon-chevron-left"></span>
+				<label id="periodo-dia"></label>
+			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
+		</div>
+		<div id="periodo-semana"  class="periodo" style="display: none;">
+			<span id="before" class="glyphicon glyphicon-chevron-left"></span>
+				<label id="periodo-semana"></label>
+			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
+		</div>
+		<div id="periodo-mes"  class="periodo" style="display: none;">
+			<span id="before" class="glyphicon glyphicon-chevron-left"></span>
+				<label id="periodo-mes"></label>
+			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
+		</div>
 		<table id="atividades">
 			<thead>
 				<tr>
-					<th data-column-id="codigo">Código</th>
-					<th data-column-id="descricao" data-order="asc">Descrição</th>
-					<th data-column-id="status">Status</th>
-					<th data-column-id="acoes" data-formatter="acoes">Ações</th>
+					<th data-column-id="inicio" data-formatter="dia" data-order="asc">Dia</th>
+					<th data-column-id="descricao">Descrição</th>
+					<th data-column-id="status" data-order="asc">Status</th>
+					<th data-column-id="acoes" data-formatter="acoes" data-sortable="false" data-searchable="false">Ações</th>
 					
 				</tr>
 			</thead>

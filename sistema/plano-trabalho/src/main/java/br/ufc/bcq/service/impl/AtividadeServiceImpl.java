@@ -22,25 +22,8 @@ public class AtividadeServiceImpl implements AtividadeService {
 	private UsuarioRepositorio usuarioRepositorio;
 	
 	@Override
-	public List<Atividade> getAllAtividades() {
-		return atividadeRepositorio.find(Atividade.class);
-	}
-
-	@Override
-	public List<Atividade> getAtividadesDiarias(Date data) {
-		return atividadeRepositorio.getAtividadesByDiaAndUsuario(new Date(), usuarioRepositorio.find(Usuario.class, 1));
-	}
-
-	@Override
-	public List<Atividade> getAtividadesSemanais(Date data) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Atividade> getAtividadesMensais(Date data) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Atividade> getAtividadesByDiaAndUsuario(Date inicio, Date termino) {
+		return atividadeRepositorio.getAtividadesByDiaAndUsuario(inicio, termino, usuarioRepositorio.find(Usuario.class, 1));
 	}
 
 }
