@@ -18,10 +18,15 @@ div.periodo label {
 	margin-right: 50px;
 }
 
-div.periodo span {
-	cursor: pointer;
-}
-
 .datepicker {
 	text-align: center;
+}
+
+.bootgrid-table th > .column-header-anchor.sortable,
+div.periodo span {
+  cursor: pointer !important;
+}
+.bootgrid-table th > .column-header-anchor,
+.pagination>.disabled>span, .pagination>.disabled>span:hover, .pagination>.disabled>span:focus, .pagination>.disabled>a, .pagination>.disabled>a:hover, .pagination>.disabled>a:focus {
+	cursor: default !important;
 }
