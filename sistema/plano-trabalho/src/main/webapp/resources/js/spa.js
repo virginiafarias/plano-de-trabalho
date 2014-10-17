@@ -155,7 +155,8 @@ function loadBootgrid(result, table) {
 	            refresh: "Atualizar",
 	            search: "Buscar"
 	        },
-	        columnSelection: true,
+	        columnSelection: false,
+	        caseSensitive: false,
 	        formatters: {
 	        	"acoes": function(column, row) {
 	        		return "Ações";

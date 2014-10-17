@@ -21,3 +21,7 @@ div.periodo label {
 div.periodo span {
 	cursor: pointer;
 }
+
+.datepicker {
+	text-align: center;
+}
