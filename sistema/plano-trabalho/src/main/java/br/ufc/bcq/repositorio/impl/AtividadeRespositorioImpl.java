@@ -21,7 +21,7 @@ public class AtividadeRespositorioImpl extends GenericRepositorioImpl<Atividade>
 		namedParams.put("usuario", usuario.getId());
 		namedParams.put("inicio", inicio);
 		namedParams.put("termino", termino);
-		return find(QueryType.JPQL, "select distinct a from Atividade a join a.usuarios u where u.id = :usuario and a.inicio >= :inicio and a.termino <= :termino", namedParams);
+		return find(QueryType.JPQL, "select distinct a from Atividade a join a.usuarios u where u.id = :usuario and ((:inicio >= a.inicio and :inicio <= a.termino) or (:termino >= a.inicio and :inicio <= a.termino))", namedParams);
 	}
 
 }

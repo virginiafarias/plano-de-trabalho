@@ -42,13 +42,26 @@
 				<label id="periodo-mes"></label>
 			<span id="after" class="glyphicon glyphicon-chevron-right"></span>
 		</div>
+		<!-- <div id="atividades-periodo-dia">
+			<table id="atividades-dia">
+				<thead>
+					<tr>
+						<th data-column-id="descricao"data-column-visible="false">Descrição</th>
+						<th data-column-id="status">Status</th>
+						<th data-column-id="acoes" data-formatter="acoes" data-sortable="false">Ações</th>
+						
+					</tr>
+				</thead>
+			</table>
+		</div> -->
+		
 		<table id="atividades">
 			<thead>
 				<tr>
-					<th data-column-id="codigo">Código</th>
-					<th data-column-id="descricao" data-order="asc">Descrição</th>
+					<th data-column-id="dia" data-formatter="dia">Dia</th>
+					<th data-column-id="descricao">Descrição</th>
 					<th data-column-id="status">Status</th>
-					<th data-column-id="acoes" data-formatter="acoes">Ações</th>
+					<th data-column-id="acoes" data-formatter="acoes" data-sortable="false">Ações</th>
 					
 				</tr>
 			</thead>

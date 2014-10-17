@@ -31,7 +31,8 @@ public class AtividadeController {
 	@RequestMapping(value = "/listar.json", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Atividade> getAtividades(@RequestBody AtividadeJson json) {
-		return atividadeService.getAtividadesByDiaAndUsuario(json.getInicio(), json.getTermino());
+		List<Atividade> atividades = atividadeService.getAtividadesByDiaAndUsuario(json.getInicio(), json.getTermino());
+		return atividades;
 	}
 
 }

@@ -14,50 +14,44 @@ $(document).ready(function() {
 		loadTaskByDay(date);
 	});
 	
+	$('#periodo-semana span#before').click(function(event) {
+		var inicio = moment($('#current-data').val()).add(-1, 'weeks').startOf('week');
+		var termino = moment($('#current-data').val()).add(-1, 'weeks').endOf('week');
+		loadTaskByWeek(inicio, termino);
+	});
+	
+	$('#periodo-semana span#after').click(function(event) {
+		var inicio = moment($('#current-data').val()).add(1, 'weeks').startOf('week');
+		var termino = moment($('#current-data').val()).add(1, 'weeks').endOf('week');
+		loadTaskByWeek(inicio, termino);
+	});
+	
+	$('#periodo-mes span#before').click(function(event) {
+		var inicio = moment($('#current-data').val()).add(-1, 'months').startOf('month');
+		var termino = moment($('#current-data').val()).add(-1, 'months').endOf('month');
+		loadTaskByMonth(inicio, termino);
+	});
+	
+	$('#periodo-mes span#after').click(function(event) {
+		var inicio = moment($('#current-data').val()).add(1, 'months').startOf('month');
+		var termino = moment($('#current-data').val()).add(1, 'months').endOf('month');
+		loadTaskByMonth(inicio, termino);
+	});
+	
 	$('#periodicidade').change(function(event) {
 		var periodicidade = $(this).val().trim();
 		if(periodicidade == 'dia') {
-			$('#periodo-dia span#before').click(function(event) {
-				var date = moment($('#current-data').val()).add(-1, 'days');
-				loadTaskByDay(date);
-			});
-			
-			$('#periodo-dia span#after').click(function(event) {
-				var date = moment($('#current-data').val()).add(1, 'days');
-				loadTaskByDay(date);
-			});
+			var date = moment($('#current-data').val());
+			loadTaskByDay(date);
 		} else if(periodicidade == 'semana') {
 			var inicio = moment($('#current-data').val()).startOf('week');
 			var termino = moment($('#current-data').val()).endOf('week');
 			loadTaskByWeek(inicio, termino);
-			
-			$('#periodo-semana span#before').click(function(event) {
-				var inicio = moment($('#current-data').val()).add(-1, 'weeks').startOf('week');
-				var termino = moment($('#current-data').val()).add(-1, 'weeks').endOf('week');
-				loadTaskByWeek(inicio, termino);
-			});
-			
-			$('#periodo-semana span#after').click(function(event) {
-				var inicio = moment($('#current-data').val()).add(1, 'weeks').startOf('week');
-				var termino = moment($('#current-data').val()).add(1, 'weeks').endOf('week');
-				loadTaskByWeek(inicio, termino);
-			});
 		} else if(periodicidade == 'mes') {
 			var inicio = moment($('#current-data').val()).startOf('month');
 			var termino = moment($('#current-data').val()).endOf('month');
 			loadTaskByMonth(inicio, termino);
 			
-			$('#periodo-mes span#before').click(function(event) {
-				var inicio = moment($('#current-data').val()).add(-1, 'months').startOf('month');
-				var termino = moment($('#current-data').val()).add(-1, 'months').endOf('month');
-				loadTaskByMonth(inicio, termino);
-			});
-			
-			$('#periodo-mes span#after').click(function(event) {
-				var inicio = moment($('#current-data').val()).add(1, 'months').startOf('month');
-				var termino = moment($('#current-data').val()).add(1, 'months').endOf('month');
-				loadTaskByMonth(inicio, termino);
-			});
 		}
 	});
 	
@@ -150,7 +144,7 @@ function loadTaskByMonth(inicio, termino) {
 	});
 }
 
-function loadBootgrid(result) {
+function loadBootgrid(result, table) {
 	$("#atividades")
 		.bootgrid({
 			labels: {
@@ -161,14 +155,20 @@ function loadBootgrid(result) {
 	            refresh: "Atualizar",
 	            search: "Buscar"
 	        },
-	        columnSelection: false,
+	        columnSelection: true,
 	        formatters: {
-	        	"acoes": function(column, row)
-	        	{
-	        	return "<button type=\"button\" class=\"btn btn-xs btn-default command-edit\" data-row-id=\"" + row.id + "\"><span class=\"fa fa-pencil\"></span></button> " +
-	        	"<button type=\"button\" class=\"btn btn-xs btn-default command-delete\" data-row-id=\"" + row.id + "\"><span class=\"fa fa-trash-o\"></span></button>";
+	        	"acoes": function(column, row) {
+	        		return "Ações";
+	        	},
+	        	"dia": function(column, row) {
+	        		if (row.inicio == row.termino) {
+	        			return "<b>" + moment(row.inicio).format('DD/MM') + "</b>";
+	        		} else {
+	        			return "<b>" + moment(row.inicio).format('DD/MM') + " - " + moment(row.termino).format('DD/MM') + "</b>";
+	        		}
+	        		
 	        	}
-	        	}
+	        }
 		})
 		.bootgrid("clear")
 		.bootgrid("append", result);
